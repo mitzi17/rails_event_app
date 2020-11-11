@@ -10,6 +10,15 @@
   </head>
 
   <body>
+  <nav>
+    <%= link_to 'Events', events_url %>
+    <% if user_signed_in? %>
+      <%= form_tag(destroy_user_session_path, method: :delete, style: 'display: inline-block' ) do %>
+        <%= submit_tag "Sign Out" %>
+      <% end %>
+      <% else %>
+      <% end %>
+  </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
