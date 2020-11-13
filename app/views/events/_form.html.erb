@@ -1,0 +1,25 @@
+<%= render partial: 'shared/errors', locals: { object: @event } %>
+
+<%= form_for @event do |f| %>
+<p>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <%= f.label :category, "Category" %>
+    <%= f.text_field :category %>
+</p>
+<p>
+    <%= f.label :location, "Location" %>
+    <%= f.text_field :location %>
+</p>
+<p>
+    <%= f.label :price, "Price" %>
+    <%= f.number_field :price %>
+</p>
+<p>
+    <%= f.label :date, "Date" %>
+    <%= f.date_field :date %>
+    <%= f.submit %>
+</p>
+<% end %>
