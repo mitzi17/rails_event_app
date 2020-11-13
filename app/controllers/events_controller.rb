@@ -12,9 +12,16 @@ class EventsController < ApplicationController
     end
     
     def new
+        @event = Event.new
     end
 
     def create
+        @event = current_user.events.build(event_params)
+        if @event.save
+            redirect_to event_path(@event)
+        else
+            render :new
+        end
     end
 
     def edit
@@ -30,5 +37,9 @@ class EventsController < ApplicationController
 
     def set_event
         @event = current_user.events.find(params[:id])
+    end
+
+    def event_params
+        params.required(:event).permit(:name, :category, :location, :price, :date)
     end
 end
