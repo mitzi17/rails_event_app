@@ -12,6 +12,7 @@
   <body>
   <nav>
     <%= link_to 'Events', events_url %>
+    <%= link_to 'Reviews', reviews_url %>
     <% if user_signed_in? %>
       <%= form_tag(destroy_user_session_path, method: :delete, style: 'display: inline-block' ) do %>
         <%= submit_tag "Sign Out" %>
