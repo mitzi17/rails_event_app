@@ -1,0 +1,17 @@
+<%= render partial: 'shared/errors', locals: { object: @review } %>
+
+<%= form_for @review do |f| %>
+<p>
+    <%= f.label :event_id, "Event Review" %>
+    <%= f.collection_select :event_id, Event.all, :id, :name %>
+</p>
+<p>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+</p>
+<p>
+    <%= f.label :content, "Content" %>
+    <%= f.text_field :content %>
+</p>
+    <%= f.submit %>
+<% end %>
