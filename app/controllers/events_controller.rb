@@ -1,14 +1,15 @@
 class EventsController < ApplicationController
     
     before_action :authenticate_user!
-    before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :set_event, only: [:edit, :update, :destroy]
 
     def index
         @events = current_user.events
+        filter_options
     end
 
     def show
-        
+        @event = Event.find(params[:id])
     end
     
     def new
@@ -49,4 +50,22 @@ class EventsController < ApplicationController
     def event_params
         params.required(:event).permit(:name, :category, :location, :price, :date)
     end
+
+    def filter_options
+        if params[:filter_by_date] == "upcoming"
+            @events = Event.all.upcoming
+        elsif params[:filter_by_date] == "past_event"
+            @events = Event.all.past_event
+        elsif params[:filter_by_date] == "my_events"
+            @events = current_user.events
+        else
+            @events = Event.all
+        end
+        if params[:sort] == "order_by_lowest_price"
+            @events = @events.order_by_lowest_price
+        elsif params[:sort] == "order_by_highest_price"
+            @events = @events.order_by_highest_price
+        end
+    end
+    
 end
