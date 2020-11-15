@@ -1,5 +1,14 @@
 <h1> Reviews </h1>
 
+<%= form_tag(reviews_path, method: 'get') do %>
+  <label for="sort">Sort By</label>
+  <select name="sort">
+    <option <%= 'selected' if params[:sort] == '' %> value="">My Reviews</option>
+    <option <%= 'selected' if params[:sort] == 'updated_at' %> value="updated_at">All Recent</option>
+  </select>
+  <%= submit_tag 'Sort Results' %>
+<% end %>
+
 <%= link_to 'Add Review', new_review_path %>
 <%= @reviews.each do |review| %>
 <p> <%= link_to review.title, review_path(review) %> </p>
