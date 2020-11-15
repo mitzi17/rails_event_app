@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     before_action :set_review, only: [:show, :edit, :update, :destroy]
 
     def index
-        @review = current_user.reviews
+        @reviews = current_user.reviews
     end
 
     def show
@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.new(review_params)
+        @review = current_user.reviews.build(review_params)
         if @review.save
             redirect_to review_path(@review)
         else
