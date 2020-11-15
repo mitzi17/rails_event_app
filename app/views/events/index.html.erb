@@ -1,4 +1,21 @@
-<h1> Events List </h1>
+<h1> Events </h1>
+
+<%= form_tag(events_path, method: 'get') do %>
+  <label for="filter_by_date">Filter By</label>
+  <select name="filter_by_date">
+    <option <%= 'selected' if params[:filter_by_date] == '' %> value="">--</option>
+    <option <%= 'selected' if params[:filter_by_date] == 'past_event' %> value="past_event">All Past</option>
+    <option <%= 'selected' if params[:filter_by_date] == 'upcoming' %> value="upcoming">All Upcoming</option>
+    <option <%= 'selected' if params[:filter_by_date] == 'my_events' %> value="my_events">My Events</option>
+  </select>
+  <label for="sort">Sort</label>
+  <select name="sort">
+    <option <%= 'selected' if params[:sort] == '' %> value="">None</option>
+    <option <%= 'selected' if params[:sort] == 'order_by_lowest_price' %> value="order_by_lowest_price">Lowest Price</option>
+    <option <%= 'selected' if params[:sort] == 'order_by_highest_price' %> value="order_by_highest_price">Highest Price</option>
+  </select>
+  <%= submit_tag 'Filter Results' %>
+<% end %>
 
 <%= link_to 'New Event', new_event_path %>
 <%= @events.each do |event| %>
