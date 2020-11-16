@@ -3,7 +3,7 @@
 <%= form_tag(events_path, method: 'get') do %>
   <label for="filter_by_date">Filter By</label>
   <select name="filter_by_date">
-    <option <%= 'selected' if params[:filter_by_date] == '' %> value="">--</option>
+    <option <%= 'selected' if params[:filter_by_date] == '' %> value="">All</option>
     <option <%= 'selected' if params[:filter_by_date] == 'past_event' %> value="past_event">All Past</option>
     <option <%= 'selected' if params[:filter_by_date] == 'upcoming' %> value="upcoming">All Upcoming</option>
     <option <%= 'selected' if params[:filter_by_date] == 'my_events' %> value="my_events">My Events</option>
@@ -19,5 +19,6 @@
 
 <%= link_to 'New Event', new_event_path %>
 <% @events.each do |event| %>
-<p> <%= link_to event.name, event_path(event) %> </p>
+<p> <%= link_to event.name, event_path(event) %> Price: $<%= event.price %></p>
+<p>  When: <%= event.date.strftime('%A, %d %b %Y %l:%M %p') %> </p>
 <% end %>
