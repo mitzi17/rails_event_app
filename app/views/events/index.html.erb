@@ -18,6 +18,6 @@
 <% end %>
 
 <%= link_to 'New Event', new_event_path %>
-<%= @events.each do |event| %>
+<% @events.each do |event| %>
 <p> <%= link_to event.name, event_path(event) %> </p>
 <% end %>
