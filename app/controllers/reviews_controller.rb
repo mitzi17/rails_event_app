@@ -4,18 +4,21 @@ class ReviewsController < ApplicationController
     before_action :set_review, only: [:edit, :update, :destroy]
 
     def index
-        @event = current_user.events.find_by_id(params[:event_id])
+        @event = Event.find_by_id(params[:event_id])
         if @event
             @reviews = @event.reviews
         else
             @reviews = current_user.reviews
         end
         
+        
         sort_options
     end
 
     def show
+        
         @review = Review.find(params[:id])
+        
     end
 
     def new
