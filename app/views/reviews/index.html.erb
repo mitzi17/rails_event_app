@@ -10,6 +10,6 @@
 <% end %>
 
 <%= link_to 'Add Review', new_review_path %>
-<%= @reviews.each do |review| %>
+<% @reviews.each do |review| %>
 <p> <%= link_to review.title, review_path(review) %> </p>
 <% end %>
