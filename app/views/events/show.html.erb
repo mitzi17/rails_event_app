@@ -1,9 +1,9 @@
 <h1> <%= @event.name %> </h1>
 
-<h3> <%= @event.date.strftime('%A, %d %b %Y %l:%M %p') %> </h3>
-<h3> <%= @event.location %> </h3>
-<h3> <%= @event.price %> </h3>
-<h3> <%= @event.category %> </h3>
+<h3> Time: <%= @event.date.strftime('%A, %d %b %Y %l:%M %p') %> </h3>
+<h3> Location: <%= @event.location %> </h3>
+<h3> Price: $ <%= @event.price %> </h3>
+<h3> Category: <%= @event.category %> </h3>
 
 <p> <%= link_to 'Add Review', new_event_review_path(@event) %> </p>
 <p> <%= link_to 'Edit Event', edit_event_path(@event) %> </p>
