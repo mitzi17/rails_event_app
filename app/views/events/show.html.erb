@@ -5,6 +5,7 @@
 <h3> Price: $ <%= @event.price %> </h3>
 <h3> Category: <%= @event.category %> </h3>
 
+<p> <%= link_to 'All Reviews', event_reviews_path(@event) %> </p>
 <p> <%= link_to 'Add Review', new_event_review_path(@event) %> </p>
 <p> <%= link_to 'Edit Event', edit_event_path(@event) %> </p>
 <%= form_tag(event_path(@event), method: :delete) do %>
