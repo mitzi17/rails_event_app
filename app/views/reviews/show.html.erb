@@ -1,11 +1,12 @@
-<h1> Review </h1>
+<h1> Review Details </h1>
 
+<h3> Event: <%=  link_to  @review.event.name, event_reviews_path(@review.event) %></h3>
 <h3> Title: <%= @review.title %> </h3>
 <h3> Content: <%= @review.content %> </h3>
 <h3> Review by: <%= @review.user.username %> </h3>
+
 <p> <% if @review.user_id == current_user.id %> </p>
 <p> <%= link_to 'Edit Review', edit_review_path(@review) %> </p>
-
 <%= form_tag(review_path(@review), method: :delete) do %>
 <%= submit_tag "Delete Review" %>
 <% end %>
