@@ -1,4 +1,4 @@
-<%= render partial: 'shared/errors', locals: { object: @event } %>
+<%= show_errors_for(@event) %>
 
 <%= form_for @event do |f| %>
 <p>
