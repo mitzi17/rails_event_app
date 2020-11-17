@@ -8,17 +8,12 @@ class ReviewsController < ApplicationController
         if @event
             @reviews = @event.reviews
         else
-            @reviews = current_user.reviews
+            sort_options
         end
-        
-        
-        sort_options
     end
 
     def show
-        
         @review = Review.find(params[:id])
-        
     end
 
     def new
@@ -68,10 +63,10 @@ class ReviewsController < ApplicationController
     def sort_options
         if params[:sort] == "updated_at"
             @reviews = Review.all.most_recent
-        else
+        elsif params[:sort] == "my_reviews"
             @reviews = current_user.reviews
+        else
+            @reviews = Review.all
         end
     end
-
-
 end
