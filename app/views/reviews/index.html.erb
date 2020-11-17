@@ -9,8 +9,9 @@
   </select>
   <%= submit_tag 'Sort Results' %>
 <% end %>
+<br>
+<button> <%= link_to 'Add Review', new_review_path %></button>
 
-<%= link_to 'Add Review', new_review_path %>
 <% @reviews.each do |review| %>
 <p> <%= link_to review.title, review_path(review) %> -<%= review.event.name %></p>
 <p> by: <%= review.user.username %> </p>
