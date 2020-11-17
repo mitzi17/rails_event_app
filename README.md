@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DESCRIPTION
 
-Things you may want to cover:
+This simple Rails MVC app, "Event App", allows users to sign up or log in by completing a form or they can do so with a Google account. Once signed in, users can create, update, and delete their own events and reviews, and can also view other users events and reviews.
 
-* Ruby version
+INSTALL INSTRUCTIONS
 
-* System dependencies
+-Clone this repo
 
-* Configuration
+-cd into 'rails_event_app'
 
-* Database creation
+-Run 'bundle install'
 
-* Database initialization
+-Run 'rails s'
 
-* How to run the test suite
+-Type 'http://localhost:3000' into browser
 
-* Services (job queues, cache servers, search engines, etc.)
+CONTRIBUTORS GUIDE
 
-* Deployment instructions
+This is a student project, meant for demo purposes. Suggestions and fixes are welcome! If you would like to contribute, follow below:
 
-* ...
+Fork and clone this repository
+Make your changes
+Include meaningful and accurate commit messages
+Push your commits to your master branch
+Submit a pull request
+
+LICENSE LINK
+
+https://github.com/mitzi17/rails_event_app/blob/main/LICENSE.md
