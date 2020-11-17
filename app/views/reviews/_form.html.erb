@@ -1,4 +1,4 @@
-<%= render partial: 'shared/errors', locals: { object: @review } %>
+<%= show_errors_for(@review) %>
 
 <%= form_for @review do |f| %>
 <p>
