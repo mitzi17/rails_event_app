@@ -4,8 +4,13 @@ class EventsController < ApplicationController
     before_action :set_event, only: [:edit, :update, :destroy]
 
     def index
-        @events = current_user.events
-        filter_options
+        if @events = Event.search(params[:search])
+            
+        else
+            @events = Event.all
+            filter_options
+        
+        end
     end
 
     def show
@@ -48,9 +53,10 @@ class EventsController < ApplicationController
     end
 
     def event_params
-        params.required(:event).permit(:name, :category, :location, :price, :date)
+        params.required(:event).permit(:name, :category, :location, :price, :date, :search)
     end
 
+    #goes in model
     def filter_options
         if params[:filter_by_date] == "upcoming"
             @events = Event.all.upcoming
