@@ -6,6 +6,17 @@ class Event < ApplicationRecord
 
   validates :name, :location, :category, :price, :date, presence: true
 
+  def self.search(search)
+    if search
+      @event = Event.find_by(date: search)
+      if @event
+        self.where(date: @event.date)
+      else
+        @events = Event.all
+      end
+    end
+  end
+
   def self.upcoming
     where("date > ?", Time.now)
   end
