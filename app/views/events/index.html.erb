@@ -6,6 +6,14 @@
       <h3>Hello, <%= current_user.username %> </h3>
   </div>
   <%end %>
+  
+  <h4>Search by Date:</h4>
+    <%= form_tag(events_path, method: :get) do %>
+      <%= datetime_field_tag(:search, params[:search])%>
+      <%= submit_tag ("Search") %>
+    <% end %>
+
+  <br>
 
 <%= form_tag(events_path, method: 'get') do %>
   <label for="filter_by_date">Filter By</label>
