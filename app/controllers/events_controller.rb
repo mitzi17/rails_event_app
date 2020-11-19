@@ -5,11 +5,11 @@ class EventsController < ApplicationController
 
     def index
         if @events = Event.search(params[:search])
-            
+            if @events == Event.all
+            flash.now[:alert] = "No events found with that date."
+            end
         else
-            @events = Event.all
             filter_options
-        
         end
     end
 
